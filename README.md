@@ -218,3 +218,5 @@ This is a collection of algorithms and data structures I've implemented in my ac
   + Find in lexicographically minimal string rotation
   + Find in lexicographically maximal string rotation
 
+# busquedaHeuristicaConAdversarios
+# busquedaHeuristicaConAdversarios
