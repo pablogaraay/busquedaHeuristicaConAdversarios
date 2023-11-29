@@ -156,7 +156,10 @@ private static class UndirectedGraph{
 Tras ejecutar el comando ```ant run_main``` el output será el siguiente:
 
 ```
-
+     [java] [[ 1(0) ] -> [ 3(0) ] = 9
+     [java] , [ 3(0) ] -> [ 4(0) ] = 11
+     [java] , [ 4(0) ] -> [ 7(0) ] = 16
+     [java] ]
 ```
 
 #### Respuestas a preguntas propuestas
