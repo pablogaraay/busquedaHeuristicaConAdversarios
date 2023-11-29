@@ -162,6 +162,7 @@ Tras ejecutar el comando ```ant run_main``` el output será el siguiente:
      [java] ]
 ```
 
+Este *output* hace referencia al camino óptimo desde el vértice o nudo 1 hasta el 7. 
 #### Respuestas a preguntas propuestas
 
 1. ¿Qué variable representa la lista ABIERTA?
