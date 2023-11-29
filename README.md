@@ -151,6 +151,74 @@ private static class UndirectedGraph{
         	final Graph<Integer> graph = new Graph<Integer>(Graph.TYPE.DIRECTED, verticies, edges);		
 }
 ```
+#### Ejecución del código 
 
+Tras ejecutar el comando ```ant run_main``` el output será el siguiente:
 
+```
 
+```
+
+#### Respuestas a preguntas propuestas
+
+1. ¿Qué variable representa la lista ABIERTA?
+
+> La variable **openSet** representa la lista ABIERTA.
+> Esta variable se encuentra dentro del método **aStar** en la clase **AStar**.
+
+```java
+final List<Graph.Vertex<T>> openSet = new ArrayList<Graph.Vertex<T>>(size);
+```
+   
+2. ¿Qué variable representa la función g?
+
+> La variable **gScore** representa la función g.
+> Esta variable se encuentra dentro del método **aStar** en la clase **AStar**.
+
+```java
+final Map<Graph.Vertex<T>,Integer> gScore = new HashMap<Graph.Vertex<T>,Integer>();
+```
+
+3. ¿Qué variable representa la función f?
+
+> La variable **fScore** representa la función f.
+> Esta variable se encuentra dentro del método **aStar** en la clase **AStar**.
+
+```java
+final Map<Graph.Vertex<T>,Integer> fScore = new HashMap<Graph.Vertex<T>,Integer>();
+```
+
+4. ¿Qué método habría que modificar para que la heurística representara la distancia aérea entre vértices?
+
+> Habría que modificar el método **heuristicCostEstimate** de la clase **AStar**.
+
+```java
+/**
+* Default heuristic: cost to each vertex is 1.
+*/
+@SuppressWarnings("unused") 
+protected int heuristicCostEstimate(Graph.Vertex<T> start, Graph.Vertex<T> goal) {
+     return 1;
+}
+```
+
+5. ¿Realiza este método reevaluación de nudos cuando se encuentra una nueva ruta a un determinado vértice? Justifique la respuesta.
+
+> El método utilizado para la reevaluación de nudos es el método **reconstructPath** de la clase **AStar**.
+
+```java
+private List<Graph.Edge<T>> reconstructPath(Map<Graph.Vertex<T>,Graph.Vertex<T>> cameFrom, Graph.Vertex<T> current) {
+    final List<Graph.Edge<T>> totalPath = new ArrayList<Graph.Edge<T>>();
+
+    while (current != null) {
+        final Graph.Vertex<T> previous = current;
+        current = cameFrom.get(current);
+        if (current != null) {
+            final Graph.Edge<T> edge = current.getEdge(previous);
+            totalPath.add(edge);
+        }
+    }
+    Collections.reverse(totalPath);
+    return totalPath;
+}
+```
